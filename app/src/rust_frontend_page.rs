@@ -72,8 +72,8 @@ fn main() {
                 <PrimaryLinkButton onclick={move |_| window()
                     .unwrap()
                     .location()
-                    .set_href("https://d1zhqm37fazhul.cloudfront.net")
-                    .unwrap()}>{"https://d1zhqm37fazhul.cloudfront.net"}
+                    .set_href("https://fallout-ui.link")
+                    .unwrap()}>{"https://fallout-ui.link"}
                 </PrimaryLinkButton>
                 {"."}
             </BodyText>
