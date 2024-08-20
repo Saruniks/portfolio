@@ -1,21 +1,28 @@
 use serde::Deserialize;
 use serde::Serialize;
 use strum::EnumIter;
-use yew::html::ImplicitClone;
 use yew_router::prelude::*;
+
+#[derive(Routable, Debug, Clone, PartialEq, Eq, Serialize, Deserialize, strum::Display)]
+pub enum Route {
+    #[at("/")]
+    Home,
+    #[at("/blog/*")]
+    Blog,
+    #[at("/projects")]
+    Projects,
+}
 
 #[derive(
     Routable, Debug, Clone, PartialEq, Eq, Serialize, Deserialize, EnumIter, strum::Display,
 )]
-pub enum Route {
-    #[at("/")]
+pub enum BlogRoute {
+    #[at("/blog/*")]
     Root,
-    #[at("/clone-on-capture")]
+    #[at("/blog/clone-on-capture")]
     CloneOnCapture,
-    #[at("/rust-frontend")]
+    #[at("/blog/rust-frontend")]
     RustFrontend,
-    #[at("/rust-full-stack-iac")]
+    #[at("/blog/rust-full-stack-iac")]
     FullStackRustIac,
 }
-
-impl ImplicitClone for Route {}

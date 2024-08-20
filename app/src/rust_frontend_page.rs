@@ -13,11 +13,13 @@ pub fn RustFrontendPage() -> Html {
             <PageHeader>{"Rust Frontend Development"}</PageHeader>
 
             <BodyText>{"To develop frontend applications I use "}
-                <PrimaryLinkButton onclick={move |_| window()
-                    .unwrap()
-                    .location()
-                    .set_href("https://github.com/yewstack/yew")
-                    .unwrap()}>{"Yew"}
+                <PrimaryLinkButton onclick={move |_| {
+                        window()
+                            .unwrap()
+                            .open_with_url("https://github.com/yewstack/yew")
+                            .unwrap();
+                        }
+                    }>{"Yew ↗️"}
                 </PrimaryLinkButton>
                 {" framework."}
             </BodyText>
@@ -59,21 +61,25 @@ fn main() {
             <Divider class="mb-4"/>
 
             <BodyText>{"For component library I use "}
-                <PrimaryLinkButton onclick={move |_| window()
-                    .unwrap()
-                    .location()
-                    .set_href("https://github.com/Saruniks/fallout-ui")
-                    .unwrap()}>{"fallout-ui"}
+                <PrimaryLinkButton onclick={move |_| {
+                    window()
+                        .unwrap()
+                        .open_with_url("https://github.com/Saruniks/fallout-ui")
+                        .unwrap();
+                    }
+                }>{"fallout-ui ↗️"}
                 </PrimaryLinkButton>
                 {"."}
             </BodyText>
 
             <BodyText>{"See the storybook on "}
-                <PrimaryLinkButton onclick={move |_| window()
-                    .unwrap()
-                    .location()
-                    .set_href("https://fallout-ui.link")
-                    .unwrap()}>{"https://fallout-ui.link"}
+                <PrimaryLinkButton onclick={move |_| {
+                    window()
+                        .unwrap()
+                        .open_with_url("https://fallout-ui.link")
+                        .unwrap();
+                        }
+                    }>{"https://fallout-ui.link"}
                 </PrimaryLinkButton>
                 {"."}
             </BodyText>
@@ -83,11 +89,13 @@ fn main() {
             <Divider class="mb-4"/>
 
             <BodyText>{"For authentication I like to use Auth0. I have developed "}
-                <PrimaryLinkButton onclick={move |_| window()
-                    .unwrap()
-                    .location()
-                    .set_href("https://github.com/Saruniks/auth0-spa-rust")
-                    .unwrap()}>{"wasm bindings"}
+                <PrimaryLinkButton onclick={move |_| {
+                    window()
+                        .unwrap()
+                        .open_with_url("https://github.com/Saruniks/auth0-spa-rust")
+                        .unwrap();
+                    }
+                }>{"wasm bindings ↗️"}
                 </PrimaryLinkButton>
                 {" so that I could use it in Yew applications."}
             </BodyText>

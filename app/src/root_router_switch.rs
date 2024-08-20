@@ -1,21 +1,28 @@
-use crate::clone_on_capture_page::CloneOnCapturePage;
-use crate::full_stack_rust_iac::FullStackRustIacPage;
+use crate::blog_page::BlogPage;
+use crate::nav::Nav;
+use crate::projects_page::ProjectsPage;
 use crate::root_page::RootPage;
-use crate::root_route::Route;
-use crate::rust_frontend_page::RustFrontendPage;
+use crate::root_route::{BlogRoute, Route};
+use fallout_ui::components::link::primary_link::PrimaryLink;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
 #[function_component]
 pub fn RouterSwitch() -> Html {
-    use Route::*;
+    let route: Route = use_route().unwrap_or(Route::Home);
 
-    let route: Route = use_route().unwrap_or(Root);
-
-    match route {
-        Root => html! { <RootPage /> },
-        CloneOnCapture => html! { <CloneOnCapturePage/> },
-        RustFrontend => html! { <RustFrontendPage/> },
-        FullStackRustIac => html! { <FullStackRustIacPage/> },
+    html! {
+        <>
+        <Nav/>
+            {
+                match route {
+                    Route::Home => html! { <RootPage /> },
+                    Route::Blog => html! {
+                        <BlogPage/>
+                     },
+                    Route::Projects => html! { <ProjectsPage/> },
+                }
+            }
+        </>
     }
 }

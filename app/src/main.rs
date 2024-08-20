@@ -12,6 +12,9 @@ pub mod root_page;
 mod root_route;
 mod root_router_switch;
 mod rust_frontend_page;
+mod nav;
+mod projects_page;
+mod blog_page;
 
 use fallout_ui::utils::toasts::init_notifier;
 use gloo::utils::document;
