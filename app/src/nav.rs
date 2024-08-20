@@ -1,7 +1,7 @@
 use fallout_ui::components::link::primary_link::PrimaryLink;
 use yew::prelude::*;
 
-use crate::root_route::Route;
+use crate::routes::Route;
 
 #[function_component]
 pub fn Nav() -> Html {

@@ -2,7 +2,7 @@ use crate::blog_page::BlogPage;
 use crate::nav::Nav;
 use crate::projects_page::ProjectsPage;
 use crate::root_page::RootPage;
-use crate::root_route::{BlogRoute, Route};
+use crate::routes::{BlogRoute, Route};
 use fallout_ui::components::link::primary_link::PrimaryLink;
 use yew::prelude::*;
 use yew_router::prelude::*;

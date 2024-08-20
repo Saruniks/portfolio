@@ -9,12 +9,13 @@ mod app;
 mod clone_on_capture_page;
 mod full_stack_rust_iac;
 pub mod root_page;
-mod root_route;
+mod routes;
 mod root_router_switch;
 mod rust_frontend_page;
 mod nav;
 mod projects_page;
 mod blog_page;
+mod managed_sccache_dist;
 
 use fallout_ui::utils::toasts::init_notifier;
 use gloo::utils::document;

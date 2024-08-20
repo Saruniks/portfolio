@@ -1,6 +1,6 @@
 use crate::clone_on_capture_page::CloneOnCapturePage;
 use crate::full_stack_rust_iac::FullStackRustIacPage;
-use crate::root_route::BlogRoute;
+use crate::routes::BlogRoute;
 use crate::rust_frontend_page::RustFrontendPage;
 use fallout_ui::components::link::primary_link::PrimaryLink;
 use fallout_ui::components::typography::header::Header;

@@ -9,7 +9,7 @@ pub enum Route {
     Home,
     #[at("/blog/*")]
     Blog,
-    #[at("/projects")]
+    #[at("/projects/*")]
     Projects,
 }
 
@@ -25,4 +25,14 @@ pub enum BlogRoute {
     RustFrontend,
     #[at("/blog/rust-full-stack-iac")]
     FullStackRustIac,
+}
+
+#[derive(
+    Routable, Debug, Clone, PartialEq, Eq, Serialize, Deserialize, EnumIter, strum::Display,
+)]
+pub enum ProjectsRoute {
+    #[at("/projects/*")]
+    Root,
+    #[at("/projects/managed-sccache-dist")]
+    ManagedSccacheDist,
 }
