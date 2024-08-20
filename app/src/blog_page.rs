@@ -10,12 +10,9 @@ use yew_router::prelude::*;
 #[function_component]
 pub fn BlogPage() -> Html {
     html! {
-        <>
-            <Header class="text-4xl mb-4">{"Blog"}</Header>
-            <BrowserRouter>
-                <Switch<BlogRoute> render={switch_blog} />
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            <Switch<BlogRoute> render={switch_blog} />
+        </BrowserRouter>
     }
 }
 
@@ -23,6 +20,7 @@ fn switch_blog(routes: BlogRoute) -> Html {
     match routes {
         BlogRoute::Root => html! {
             <>
+                <Header class="text-4xl mb-4">{"Blog"}</Header>
                 <PrimaryLink<BlogRoute> to={BlogRoute::CloneOnCapture}>{"Clone On Capture Macro"}</PrimaryLink<BlogRoute>>
                 <br/>
                 <PrimaryLink<BlogRoute> to={BlogRoute::RustFrontend}>{"Rust Frontend Development"}</PrimaryLink<BlogRoute>>
