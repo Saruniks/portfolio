@@ -1,3 +1,4 @@
+use crate::code_block::CodeBlock;
 use fallout_ui::components::divider::Divider;
 use fallout_ui::components::typography::header::Header;
 use fallout_ui::components::typography::{body_text::BodyText, page_header::PageHeader};
@@ -18,7 +19,7 @@ pub fn FullStackRustIacPage() -> Html {
                 <BodyText>{"As a source provider I use either CodeCommit or Github."}</BodyText>
                 <BodyText>{"Example of how source step is defined in AWS CDK:"}</BodyText>
 
-                <pre> {
+                <CodeBlock language={"ts"}> {
 r###"const pipeline = new codepipeline.Pipeline(this, 'ManagedSccachePipeline')
 const sourceOutput = new codepipeline.Artifact()
 
@@ -32,7 +33,7 @@ pipeline.addStage({
         branch: 'main',
         oauthToken: cdk.SecretValue.secretsManager('my-github-key'), # github key from AWS SecretsManager
     })]
-})"### } </pre>
+})"### } </CodeBlock>
 
 
                 <Header class="mb-1">{"Build Step"}</Header>
@@ -41,7 +42,7 @@ pipeline.addStage({
                 <BodyText>{"For build step of CI/CD I use CodeBuild. As CodeBuild doesn't support Rust builds out of the box, I use custom Docker images."}</BodyText>
                 <BodyText>{"Example Dockerfile for building Rust Frontend Application:"}</BodyText>
 
-                <pre>{
+                <CodeBlock language={"dockerfile"}>{
 r###"FROM rust:1.78
 
 RUN apt-get update && \
@@ -51,10 +52,10 @@ RUN apt-get update && \
 RUN cargo install --locked trunk
 RUN rustup target add wasm32-unknown-unknown 
 RUN cargo install wasm-bindgen-cli@0.2.64 -f"###
-    } </pre>
+    } </CodeBlock>
 
                 <BodyText>{"Example buildspec.yml for building Rust Frontend Application:"}</BodyText>
-                <pre>{
+                <CodeBlock language={"yaml"}>{
 r###"version: "0.2"
 
 env:
@@ -71,14 +72,14 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: 'frontend/builder-ui/dist'"### } </pre>
+  base-directory: 'frontend/builder-ui/dist'"### } </CodeBlock>
 
             <Header class="mb-1">{"Deployment Step"}</Header>
             <Divider class="mb-4"/>
 
             <BodyText>{"I'm using S3 behind CloudFront for frontend and ElasticBeanstalk for backend:"}</BodyText>
 
-            <pre>{
+            <CodeBlock language={"ts"}>{
 r###"pipeline.addStage({
     stageName: 'Deploy',
     actions: [
@@ -95,7 +96,7 @@ r###"pipeline.addStage({
             input: rustBuildBackend.buildOutput
         }),
     ]
-})"### } </pre>
+})"### } </CodeBlock>
 
             <Header class="mb-1">{"Database"}</Header>
             <Divider class="mb-4"/>
@@ -103,7 +104,7 @@ r###"pipeline.addStage({
             <BodyText>{"For persistent data I use RDS (PostgreSQL)."}</BodyText>
             <BodyText>{"I store database credentials in AWS Secrets Manager:"}</BodyText>
 
-            <pre>{
+            <CodeBlock language={"ts"}>{
 r###"const databaseCredentialsSecret = new secretsmanager.Secret(this, 'RdsPostgresCredentials', {
     secretName: 'RdsPostgresCredentials',
     generateSecretString: {
@@ -114,16 +115,16 @@ r###"const databaseCredentialsSecret = new secretsmanager.Secret(this, 'RdsPostg
         includeSpace: false,
         generateStringKey: 'password',
     },
-})"### } </pre>
+})"### } </CodeBlock>
 
             <BodyText>{"Credentials are retrieved by using "} <code>{"aws-sdk-rust"}</code> {" :"}</BodyText>
-            <pre>{
+            <CodeBlock language={"rust"}>{
 r###"let client = aws_sdk_secretsmanager::Client::from_conf(config);
 let db_credentials = client
     .get_secret_value()
     .secret_id(secret_id)
     .send()
-    .await?;"### } </pre>
+    .await?;"### } </CodeBlock>
             </>
         }
 }

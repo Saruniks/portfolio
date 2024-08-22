@@ -1,3 +1,4 @@
+use crate::code_block::CodeBlock;
 use fallout_ui::components::divider::Divider;
 use fallout_ui::{
     components::{
@@ -28,33 +29,33 @@ pub fn ManagedSccacheDistPage() -> Html {
             <Divider class="mb-4"/>
 
             <BodyText> {"One way to install sccache is via cargo:"} </BodyText>
-            <pre>
+            <CodeBlock language={"bash"}>
                 {"cargo install sccache --locked"}
-            </pre>
+            </CodeBlock>
 
             <BodyText> {"Environment variable "} <code>{"RUSTC_WRAPPER"}</code> {" can be used to run sccache when compiling Rust code:"} </BodyText>
-            <pre> {
+            <CodeBlock language={"bash"}> {
 r###"export RUSTC_WRAPPER=/path/to/sccache
-cargo build"### } </pre>
+cargo build"### } </CodeBlock>
             <br/>
 
             <Header class="mb-1">{"sccache-dist usage"}</Header>
             <Divider class="mb-4"/>
 
-            <BodyText> {"Either install pre-built sccache binaries, or build sccache locally with the dist-client and dist-server features enabled:"} </BodyText>
+            <BodyText> {"Either install CodeBlock-built sccache binaries, or build sccache locally with the dist-client and dist-server features enabled:"} </BodyText>
 
-            <pre> {"cargo build --release --features=\"dist-client dist-server\""} </pre>
+            <CodeBlock language={"bash"}> {"cargo build --release --features=\"dist-client dist-server\""} </CodeBlock>
 
             <BodyText> {"Start the scheduler by running:"} </BodyText>
 
-            <pre> {"sccache-dist scheduler --config scheduler.conf"} </pre>
+            <CodeBlock language={"bash"}> {"sccache-dist scheduler --config scheduler.conf"} </CodeBlock>
 
             <BodyText> {"Start the server by running:"} </BodyText>
 
-            <pre> {"sudo sccache-dist server --config server.conf"} </pre>
+            <CodeBlock language={"bash"}> {"sudo sccache-dist server --config server.conf"} </CodeBlock>
 
             <BodyText> {"Configure a client by creating client config file in "} <code> {"~/.config/sccache/config"} </code> {" (on Linux). A minimal example looks like:"} </BodyText>
-            <pre> {
+            <CodeBlock language={"toml"}> {
 r###"[dist]
 # The URL used to connect to the scheduler (should use https, given an ideal
 # setup of a HTTPS server in front of the scheduler)
@@ -64,13 +65,12 @@ scheduler_url = "https://192.168.1.1"
 toolchains = []
 # Size of the local toolchain cache, in bytes (5GB here, 10GB if unspecified).
 toolchain_cache_size = 5368709120
-
             
 [dist.auth]
 type = "token"
 # This should match the `client_auth` section of the scheduler config.
 token = "my client token"
-"###        } </pre>
+"###        } </CodeBlock>
 
             <Header class="mb-1">{"So what am I working on?"}</Header>
             <Divider class="mb-4"/>

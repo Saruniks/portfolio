@@ -20,7 +20,7 @@ let var_clone = var.clone();
 
             <BodyText>{"To move variable into closure you may need to clone it explicitly:"}</BodyText>
 
-            <pre> {
+            <CodeBlock language={"rust"}> {
 r###"let var = String::from("aaa");
 let var_clone = var.clone();
 
@@ -30,7 +30,7 @@ let closure = move || {
 
 println!("Value of var: {}", var);
 closure();"###
-            } </pre>
+            } </CodeBlock>
 
             <BodyText>{"In the end you end up having some boilerplate to get semantic clarity."}</BodyText>
 
@@ -38,7 +38,7 @@ closure();"###
 
             <BodyText>{"Given a more complex example of defining closures for button "} <code>{"onclick"}</code> {" actions:"}</BodyText>
 
-            <pre> {
+            <CodeBlock language={"rust"}> {
 r###"#[function_component(Nav)]
 pub fn nav() -> Html {
     let name = String::from("SomeName");
@@ -59,13 +59,13 @@ pub fn nav() -> Html {
             {"Log Out"}
         </button>
     }
-}"### } </pre>
+}"### } </CodeBlock>
 
             <Divider class="my-4"/>
 
             <BodyText>{"One way to reduce boilerplate would be to use "} <code>{"clone_on_capture"}</code> {" to make clone implicit:"}</BodyText>
 
-            <pre> {r###"#[clone_on_capture] // <<--- Note this macro
+            <CodeBlock language={"rust"}> {r###"#[clone_on_capture] // <<--- Note this macro
 #[function_component(Nav)]
 pub fn nav() -> Html {
     let name = String::from("SomeName");
@@ -85,7 +85,7 @@ pub fn nav() -> Html {
         </button>
     }
 }
-"### } </pre>
+"### } </CodeBlock>
 
             <BodyText>
                 {"Learn more: "}

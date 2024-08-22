@@ -1,3 +1,4 @@
+use crate::code_block::CodeBlock;
 use fallout_ui::components::buttons::primary_link_button::PrimaryLinkButton;
 use fallout_ui::components::divider::Divider;
 use fallout_ui::{
@@ -31,7 +32,7 @@ pub fn RustFrontendPage() -> Html {
 
             <BodyText>{"Example App:"}</BodyText>
 
-            <pre>
+            <CodeBlock language={"rust"}>
     {r###"use yew::prelude::*;
 
 #[function_component]
@@ -56,7 +57,7 @@ fn App() -> Html {
 fn main() {
     yew::Renderer::<App>::new().render();
 }"###}
-            </pre>
+            </CodeBlock>
 
             <Divider class="mb-4"/>
 
@@ -102,7 +103,7 @@ fn main() {
 
             <BodyText>{"Wasm bidgen is used to generate the bindings to auth0-spa-js:"}</BodyText>
 
-            <pre>{
+            <CodeBlock language={"rust"}>{
 r###"#[wasm_bindgen]
 extern "C" {
     pub type Auth0Client;
@@ -125,10 +126,10 @@ extern "C" {
     ) -> Result<JsValue, JsValue>;
     <...>
 }
-"### } </pre>
+"### } </CodeBlock>
 
             <BodyText>{"Afterwards "} <code>{"ContextProvider"}</code> {" can be used:"}</BodyText>
-            <pre>{
+            <CodeBlock language={"rust"}>{
 r###"#[function_component(AuthContextProvider)]
 pub fn auth_context(props: &Props) -> Html
     <...>
@@ -137,17 +138,17 @@ pub fn auth_context(props: &Props) -> Html
             {props.children.clone()}
         </ContextProvider<AuthContext>>
     }
-}"### } </pre>
+}"### } </CodeBlock>
 
             <BodyText> {"Auth data can then be retrieved by using "} <code>{"use_context"}</code> {":"}</BodyText>
-            <pre>{
+            <CodeBlock language={"rust"}>{
 r###"#[function_component]
 pub fn SomeComponent() -> Html {
     let context = use_context::<AuthContext>();
     html {
         <...>
     }
-}"### } </pre>
+}"### } </CodeBlock>
         </>
     }
 }

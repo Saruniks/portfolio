@@ -10,7 +10,6 @@ extern "C" {
 }
 
 pub struct CodeBlock {
-    props: Props,
     id: String,
 }
 
@@ -18,23 +17,24 @@ pub struct CodeBlock {
 pub struct Props {
     pub children: Children,
     pub language: String,
+    #[prop_or_default]
+    pub class: Classes,
 }
 
 impl Component for CodeBlock {
     type Message = ();
     type Properties = Props;
 
-    fn create(ctx: &Context<Self>) -> Self {
+    fn create(_ctx: &Context<Self>) -> Self {
         Self {
-            props: ctx.props().clone(),
             id: format!("codeblock-{}", uuid::Uuid::new_v4()),
         }
     }
 
-    fn view(&self, _ctx: &Context<Self>) -> Html {
-        let code_class = format!("language-{}", self.props.language);
+    fn view(&self, ctx: &Context<Self>) -> Html {
+        let code_class = format!("language-{}", &ctx.props().language);
         html! {
-            <pre><code id={self.id.clone()} class={code_class.clone()}>{ &self.props.children }</code></pre>
+            <pre><code id={self.id.clone()} class={classes!(code_class.clone(), ctx.props().class.clone())}>{ &ctx.props().children }</code></pre>
         }
     }
 
