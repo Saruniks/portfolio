@@ -55,7 +55,10 @@ dependencies = [
  "gloo 0.8.1",
  "serde",
  "strum 0.22.0",
+ "uuid",
+ "wasm-bindgen",
  "wasm-bindgen-futures",
+ "web-sys",
  "yew",
  "yew-router",
 ]
@@ -1526,6 +1529,7 @@ version = "1.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5e395fcf16a7a3d8127ec99782007af141946b4795001f876d54fb0d55978560"
 dependencies = [
+ "getrandom",
  "wasm-bindgen",
 ]
 

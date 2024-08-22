@@ -1,3 +1,4 @@
+use crate::code_block::CodeBlock;
 use fallout_ui::components::buttons::primary_link_button::PrimaryLinkButton;
 use fallout_ui::components::divider::Divider;
 use fallout_ui::components::typography::{body_text::BodyText, page_header::PageHeader};
@@ -12,10 +13,10 @@ pub fn CloneOnCapturePage() -> Html {
 
             <BodyText>{"Clone in Rust is explicit:"}</BodyText>
 
-            <pre> {
+            <CodeBlock language={"rust"}> {
 r###"let var = String::from("aaa");
 let var_clone = var.clone();
-"### }      </pre>
+"### }      </CodeBlock>
 
             <BodyText>{"To move variable into closure you may need to clone it explicitly:"}</BodyText>
 

@@ -16,6 +16,7 @@ mod nav;
 mod projects_page;
 mod blog_page;
 mod managed_sccache_dist;
+mod code_block;
 
 use fallout_ui::utils::toasts::init_notifier;
 use gloo::utils::document;

@@ -15,7 +15,10 @@ fallout-ui = { git = "https://github.com/Saruniks/fallout-ui.git" }
 gloo = "0.8"
 serde = { version = "1", features = ["derive"] }
 strum = { version = "0.22", features = ["derive"] } 
+uuid = { version = "1",  features = ["wasm-bindgen", "v4"] }
+wasm-bindgen = "0.2.93"
 wasm-bindgen-futures = "=0.4"
+web-sys = "0.3.70"
 
 yew = { version = "0.21.0", features = ["csr"] }
 yew-router = "0.18.0"
