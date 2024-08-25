@@ -10,7 +10,8 @@ pub fn ProjectsList() -> Html {
 
     html! {
         <>
-            <Card class={"max-w-md"} image={"/images/panel.png"} hoverable={true} onclick={move |_| navigator.replace(&ProjectsRoute::ManagedSccacheDist)}>
+            <Card class={"max-w-md"} image={"/images/panel.png"} hoverable={true} 
+                onclick={move |_| navigator.push(&ProjectsRoute::ManagedSccacheDist)}>
                 {"Managed Distributed sccache"}
             </Card>
         </>
