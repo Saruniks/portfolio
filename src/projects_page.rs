@@ -1,5 +1,6 @@
 use crate::managed_sccache_dist::ManagedSccacheDistPage;
-use fallout_ui::components::{link::primary_link::PrimaryLink, typography::header::Header};
+use crate::projects_list::ProjectsList;
+use fallout_ui::components::typography::header::Header;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -19,7 +20,7 @@ fn switch_blog(routes: ProjectsRoute) -> Html {
         ProjectsRoute::Root => html! {
             <>
                 <Header class="text-4xl mb-4">{"Projects"}</Header>
-                <PrimaryLink<ProjectsRoute> to={ProjectsRoute::ManagedSccacheDist}>{"Managed Distributed sccache"}</PrimaryLink<ProjectsRoute>>
+                <ProjectsList/>
                 <br/>
             </>
         },
