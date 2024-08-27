@@ -1,5 +1,4 @@
 use crate::blog_page::BlogPage;
-use crate::nav::Nav;
 use crate::projects_page::ProjectsPage;
 use crate::root_page::RootPage;
 use crate::routes::Route;
@@ -12,7 +11,6 @@ pub fn RouterSwitch() -> Html {
 
     html! {
         <>
-        <Nav/>
             {
                 match route {
                     Route::Home => html! { <RootPage /> },

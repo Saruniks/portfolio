@@ -5,6 +5,7 @@ use yew_router::prelude::*;
 
 #[derive(Routable, Debug, Clone, PartialEq, Eq, Serialize, Deserialize, strum::Display)]
 pub enum Route {
+    #[not_found]
     #[at("/")]
     Home,
     #[at("/blog/*")]
