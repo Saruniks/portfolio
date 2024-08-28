@@ -40,9 +40,9 @@ pub fn Root() -> Html {
 
     html! {
         <Layout>
-            <div class="min-h-screen flex flex-col items-center bg-gray-100 ">
+            <div class="min-h-screen flex flex-col items-center bg-gray-100">
                 <Nav class="w-full flex justify-center bg-gray-800">
-                    <div class="flex w-full max-w-6xl justify-between items-center px-6">
+                    <div class="flex w-full max-w-screen-2xl justify-between items-center px-6">
                         <div class="cursor-pointer text-left justify-left" onclick={move |_| navigator.push(&Route::Home)}>
                             <Header class="text-2xl text-white">{"Šarūnas' Blog"}</Header>
                             <Header class="text-base text-white">{"Rust Full Stack Cloud Engineering"}</Header>
@@ -50,7 +50,7 @@ pub fn Root() -> Html {
                         <Menu<Route> class="flex space-x-8 justify-end" mode={MenuMode::Horizontal} items={items.clone()} default_selected={current_index}/>
                     </div>
                 </Nav>
-                <div class="flex-grow w-full max-w-4xl px-4 py-6">
+                <div class="flex-grow w-full max-w-screen-xl px-8 py-8 lg:px-16 lg:py-12 xl:max-w-screen-2xl xl:px-24">
                     <div class={"bg-white p-6 rounded-lg shadow-md"}>
                         <Content class="h-fit">
                             <RouterSwitch/>

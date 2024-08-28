@@ -1,8 +1,6 @@
 use fallout_ui::components::{
-    card::Card,
-    layout::grid::{Columns, Grid},
     link::primary_link::PrimaryLink,
-    typography::{body_text::BodyText, header::Header, small_body_text::SmallBodyText},
+    typography::{body_text::BodyText, header::Header},
 };
 use yew::prelude::*;
 
@@ -15,22 +13,22 @@ pub fn RootPage() -> Html {
             <Header class="text-4xl mb-4">{"About me"}</Header>
             <div class="space-y-4">
             <BodyText>
-                { "I'm a Rust Software Engineer from Lithuania." }
+                { "I'm a Software Engineer from Lithuania." }
             </BodyText>
             <BodyText>
-                { "I am using Rust in Frontend (Yew) and Backend development." }
+                { "I use Rust for both Frontend (Yew) and Backend development." }
             </BodyText>
             <BodyText>
-                { "For cloud infrastructure, I mostly use AWS CDK, and for application development and interacting with AWS services, I use AWS SDK." }
+                { "For cloud infrastructure, I primarily use AWS CDK. For application development and interacting with AWS services, I use AWS SDK." }
             </BodyText>
                 <BodyText>
-                    { "View my " }
-                    <PrimaryLink<Route> to={Route::Blog}>{"Blog"}</PrimaryLink<Route>>
-                    { ", "}
-                    <PrimaryLink<Route> to={Route::Projects}>{"Projects"}</PrimaryLink<Route>>
+                    { "Feel free to check out my " }
+                    <PrimaryLink<Route> to={Route::Blog}>{"blog"}</PrimaryLink<Route>>
+                    { ", view my "}
+                    <PrimaryLink<Route> to={Route::Projects}>{"projects"}</PrimaryLink<Route>>
                     { ", or send me an email at " }
                         <a class={"text-primary text-base hover:underline"} href="mailto:sarunas.gincas@gmail.com">{"sarunas.gincas@gmail.com"}</a>
-                    { " if you would like to learn more." }
+                    { " if you'd like to learn more." }
                 </BodyText>
             </div>
         </>
