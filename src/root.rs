@@ -43,7 +43,7 @@ pub fn Root() -> Html {
             <div class="min-h-screen flex flex-col items-center bg-gray-100">
                 <Nav class="w-full flex justify-center bg-gray-800">
                     <div class="flex w-full max-w-screen-2xl justify-between items-center px-6">
-                        <div class="cursor-pointer text-left justify-left" onclick={move |_| navigator.push(&Route::Home)}>
+                        <div class="cursor-pointer text-left justify-left hidden md:block" onclick={move |_| navigator.push(&Route::Home)}>
                             <Header class="text-2xl text-white">{"Šarūnas' Blog"}</Header>
                             <Header class="text-base text-white">{"Rust Full Stack Cloud Engineering"}</Header>
                         </div>
